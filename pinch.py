@@ -38,7 +38,8 @@ t_min = 2.5e-9 - 0.4 / c
 t_max = 2.5e-9 + 0.4 / c
 t_end_sim = t_max + 0.02 / c
 total_N_particles = sum([mp_system["N_mp"][0][0] for mp_system in mp_states])
-total_N_particles *= 2. #put more particles to max allowed
+total_N_particles *= 2 #put more particles to max allowed
+total_N_particles += 10000 #put more particles to max allowed
 
 nsigma = 7.5
 xc = eclouds_info[ecloud]["x_b1"]
@@ -70,7 +71,8 @@ N_min_Dh_main = 50
 
 sim = BuildupSimulation(extract_sey=False, N_mp_max=total_N_particles, PyPICmode=PyPICmode,
                         target_grid=target_grid, f_telescope=f_telescope,
-                        N_nodes_discard=N_nodes_discard, N_min_Dh_main=N_min_Dh_main)
+                        N_nodes_discard=N_nodes_discard, N_min_Dh_main=N_min_Dh_main,
+                        init_unif_edens_flag=0)
 
 
 sim.cloud_list[0].MP_e.init_from_dict(mp_states[0])
