@@ -28,6 +28,8 @@ with open("eclouds_LHCIT_slices.json","r") as fid:
 out_pinch = f"Pinch.h5"
 
 mp_state_files = glob.glob("MP_state*")
+if len(mp_state_files) == 0:
+    raise Exception("No macroparticles found to pinch.")
 mp_states = []
 for name in mp_state_files:
     mp_system = scipy.io.loadmat(name)
