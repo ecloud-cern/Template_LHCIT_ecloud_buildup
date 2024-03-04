@@ -8,6 +8,8 @@ from xaux import ProtectFile
 import PyECLOUD.int_field_for as iff
 import glob
 
+ProtectFile._debug = True
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--ecloud", nargs="?", type=str, default="ecloud.q3r1.ir1.0")
 parser.add_argument("--sey_max", nargs="?", type=str, default="1.35")
@@ -74,7 +76,7 @@ new_yg = np.linspace(ymin, ymax, new_Ny)
 # we need to initialize all slices
 # open Triplet
 print(triplet_path)
-with ProtectFile(triplet_path, 'r+b', backup=False, wait=1, eos_url=args.eos_url) as pf:
+with ProtectFile(triplet_path, 'r+b', backup=False, wait=10, eos_url=args.eos_url) as pf:
     with h5py.File(pf, "a") as Triplet:
         mp_state_files = glob.glob("MP_state*")
         if len(mp_state_files) == 0:
