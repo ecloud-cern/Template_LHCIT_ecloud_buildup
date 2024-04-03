@@ -81,7 +81,7 @@ max_tries = 50
 for trial in range(max_tries):
     try:
         print(triplet_path)
-        with xaux.ProtectFile(triplet_path, 'r+b', backup=False, wait=10, eos_url=args.eos_url, check_hash=False) as pf:
+        with xaux.ProtectFile(triplet_path, 'r+b', backup=False, wait=20, eos_url=args.eos_url, check_hash=False) as pf:
             with h5py.File(pf, "a") as Triplet:
                 mp_state_files = glob.glob("MP_state*")
                 if len(mp_state_files) == 0:
