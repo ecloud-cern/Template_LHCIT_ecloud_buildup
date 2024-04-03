@@ -130,6 +130,9 @@ for trial in range(max_tries):
 
                             del Triplet['fresh']
 
+                        if ecloud_name in Triplet['progress'].keys():
+                            raise Exception("e-cloud already present in Triplet!!!!")
+
                         xco_source = info['x_b1']
                         yco_source = info['y_b1']
                         betx_source = info['betx_b1']
@@ -149,8 +152,6 @@ for trial in range(max_tries):
                                                                         xg[1] - xg[0], yg[1] - yg[0], myslice, myslice)
                             phi += length*int_phi.reshape(new_Nx, new_Ny)
                             Triplet[f'slices/slice{ii}/phi'][...] = phi
-                        if ecloud_name in Triplet['progress'].keys():
-                            raise Exception("e-cloud already present in Triplet!!!!")
                         Triplet[f'progress/{ecloud_name}'] = pendulum.now().to_datetime_string()
         break
     except FileChangedException as err:
