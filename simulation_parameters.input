@@ -63,7 +63,7 @@ sparse_solver = 'klu'
 
 #save_mp_state_time_file =  -1 
 #save_mp_state_time_file = np.arange(88,136,1)*25e-9 # 1x48 bunches
-save_mp_state_time_file = np.arange(326,346,1)*25e-9 # 3x48 bunches (twenty bunches in the middle of third batch of second train)
+save_mp_state_time_file = np.arange(321,341,1)*25e-9 # 3x48 bunches (twenty bunches in the middle of third batch of second train)
 
 flag_hist_impact_seg = 1
 
