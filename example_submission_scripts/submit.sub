@@ -1,0 +1,17 @@
+collider = Run3_2025_collisions_60cm_18cm_150urad_1.20e11_2.0um_62.310_60.320_20_300_0.001
+sey = 1.30
+intensity = 1.20
+collider = Run3_2025_collisions_60cm_18cm_150urad_1.20e11_2.0um_62.310_60.320_20_300_0.001
+blen = 0.09
+universe = vanilla
+executable = executable.sh
+arguments = $(ecloud) $(collider) $(sey) $(intensity) $(blen)
+output = log_$(collider)_sey$(sey)_intensity$(intensity)_blen$(blen)/$(ecloud).out
+error = log_$(collider)_sey$(sey)_intensity$(intensity)_blen$(blen)/$(ecloud).err
+log = log_$(collider)_sey$(sey)_intensity$(intensity)_blen$(blen)/$(ecloud).log
+transfer_output_files   = ""
++SingularityImage = "/cvmfs/unpacked.cern.ch/registry.cern.ch/ecloud-scrubbing/pyecloud:2024.1"
++JobFlavour = "testmatch"
+requirements = TARGET.CERNEnvironment =?= "production"
+queue ecloud from list_temp.txt
+# queue ecloud from ecloud_list.txt
