@@ -30,5 +30,5 @@ flag_bunched_beam = 1 # 1: bunched beam 0:load profile from file
 # to be filled in case of bunched beam
 sigmaz = 9.000000e-02
 t_offs = 2.5e-9
-filling_pattern_file = 2*(3*(48*[1.]+8*[0.])+32*[0.]) + [0.]
+filling_pattern_file = 2*(3*(48*[1.]+7*[0.])+32*[0.]) + [0.]
 

@@ -74,7 +74,7 @@ N_min_Dh_main = 50
 sim = BuildupSimulation(extract_sey=False, N_mp_max=total_N_particles, PyPICmode=PyPICmode,
                         target_grid=target_grid, f_telescope=f_telescope,
                         N_nodes_discard=N_nodes_discard, N_min_Dh_main=N_min_Dh_main,
-                        init_unif_edens_flag=0)
+                        init_unif_edens_flag=0, Dt_sc=None)
 
 
 sim.cloud_list[0].MP_e.init_from_dict(mp_states[0])
